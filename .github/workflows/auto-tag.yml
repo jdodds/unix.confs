@@ -1,0 +1,15 @@
+name: Auto Tag
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+jobs:
+  auto-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - working-directory: ${{ github.workspace }}
+        env:
+          access_token: ${{ secrets.access_token }}
+        run: |
+          .github/workflows/update-submodules.sh
+          .github/workflows/tag-when-updated.sh

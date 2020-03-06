@@ -1,0 +1,14 @@
+name: Auto Release
+on:
+  push:
+    tags:
+      - '**'
+jobs:
+  auto-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - working-directory: ${{ github.workspace }}
+        run: |
+          .github/workflows/update-submodules.sh
+          .github/workflows/create-release.sh

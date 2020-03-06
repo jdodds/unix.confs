@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+[[ ! -x $(which git) ]] && echo "you're gonna need git installed" && exit 1
+
+here=$(git rev-parse --show-toplevel)
+git submodule sync
+git submodule update --init --depth=1
+git submodule -q foreach "echo 'installing: ' \$name; $here/\$path/install && echo 'done'"

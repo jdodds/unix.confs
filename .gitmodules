@@ -1,0 +1,6 @@
+[submodule "tmux.conf"]
+	path = tmux.conf
+	url = https://github.com/jdodds/tmux.conf
+[submodule "bash.conf"]
+	path = bash.conf
+	url = https://github.com/jdodds/bash.conf

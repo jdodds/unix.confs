@@ -1,0 +1,19 @@
+name: shellcheck
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+    tags-ignore:
+      - '**'
+jobs:
+  shellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - working-directory: ${{ github.workspace }}
+        run: |
+          shellcheck .github/workflows/tag-when-updated.sh
+          shellcheck .github/workflows/create-release.sh
+          shellcheck .github/workflows/update-submodules.sh
+          shellcheck install
