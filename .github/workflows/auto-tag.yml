@@ -7,7 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - working-directory: ${{ github.workspace }}
+      - name: 'create tag'
+        working-directory: ${{ github.workspace }}
         env:
           access_token: ${{ secrets.access_token }}
         run: |
