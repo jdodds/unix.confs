@@ -4,3 +4,6 @@
 [submodule "bash.conf"]
 	path = bash.conf
 	url = https://github.com/jdodds/bash.conf
+[submodule "git.conf"]
+	path = git.conf
+	url = https://github.com/jdodds/git.conf
