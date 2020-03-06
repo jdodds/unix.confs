@@ -7,3 +7,6 @@ Running `install` from this repo, or any of the repos it aggregates will symlink
 
 
 Issues/PRs for the child repos should be opened on their pages, but we'll still pay attention to them if they're opened here.
+
+
+![drink deep of his eyes](https://repository-images.githubusercontent.com/245164634/fc5bd580-5fce-11ea-8608-353f935f725b "allow it")
