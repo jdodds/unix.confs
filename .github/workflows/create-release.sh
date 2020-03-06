@@ -28,4 +28,4 @@ upload_url="${upload_url%\{*}"
 curl -f -sSL -XPOST \
      -H "$auth" -H "$length" -H "$type" \
      --upload-file "$archive" \
-     "$upload_url?name=${archive}&label=unix.confs.bare.zip"
+     "$upload_url?name=${archive}&label=without%20git%20files"
