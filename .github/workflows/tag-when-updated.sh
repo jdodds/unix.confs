@@ -33,7 +33,7 @@ git config --local user.email "action@github.com"
 git config --local user.name "GitHub Action"
 git add CHANGELOG
 git commit -m "As of $today"
-git tag -m "$today" "$((num_tags+1))"
+git tag -m "$today" "v$((num_tags+1))"
 
 # shellcheck disable=SC2154
 remote="https://${GITHUB_ACTOR}:${access_token}@github.com/${GITHUB_REPOSITORY}.git"
