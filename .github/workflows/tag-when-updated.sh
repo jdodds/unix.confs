@@ -36,7 +36,7 @@ git commit -m "As of $today"
 git tag -m "$today" "$((num_tags+1))"
 
 # shellcheck disable=SC2154
-remote="https://${GITHUB_ACTOR}:${{ access_token }}@github.com/${GITHUB_REPOSITORY}.git"
+remote="https://${GITHUB_ACTOR}:${access_token}@github.com/${GITHUB_REPOSITORY}.git"
 
 git push "${remote}" master
 git push --tags
