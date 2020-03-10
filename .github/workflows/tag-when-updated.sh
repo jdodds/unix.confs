@@ -12,11 +12,12 @@ last_tagged=$(git tag -l --sort='-taggerdate' --format='%(taggerdate:iso-strict)
 new_info=''
 
 git submodule -q foreach "
-    cd \$toplevel/\$path
-    has_changes=\$(git log --oneline --since=\$last_tagged | wc -l)
-    [[ \$has_changes -eq 0 ]] && continue
-    changes=\$(git log --since=$last_tagged --format='+ %s%n')
-    new_info=\"\n$new_info\n## \$name\n\$changes\"
+    cd \$toplevel/\$path;
+    has_changes=\$(git log --oneline --since=\$last_tagged | wc -l);
+    if [[ \$has_changes -ne 0 ]] ; then
+    changes=\$(git log --since=$last_tagged --format='+ %s%n');
+    new_info=\"\n$new_info\n## \$name\n\$changes\";
+    fi;
 "
 
 if [[ $(git log --oneline --since="$last_tagged" | wc -l) -ne 0 ]] ; then
