@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 git fetch --depth=1 --tags
+git submodule update --init
 
 num_tags=$(git tag | wc -l)
 
@@ -24,14 +25,15 @@ fi
 
 [[ -z $new_info ]] && exit 0;
 
-log=$(tail +2 CHANGELOG)
+log=$(tail +2 CHANGELOG.md)
 today=$(date "+%Y-%m-%d")
 printf -v newlog "# %s\n%b\n%b\n" "$today" "$new_info" "$log"
-echo "$newlog" > CHANGELOG
+echo "$newlog" > CHANGELOG.md
 
 git config --local user.email "action@github.com"
 git config --local user.name "GitHub Action"
-git add CHANGELOG
+git add .gitmodules
+git add CHANGELOG.md
 git commit -m "As of $today"
 git tag -m "$today" "v$((num_tags+1))"
 
